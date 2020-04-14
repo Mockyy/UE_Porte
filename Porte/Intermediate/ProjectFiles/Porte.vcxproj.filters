@@ -66,4 +66,22 @@
       <Filter>Source\Porte</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source\Porte\Public">
+      <UniqueIdentifier>{5bb746a6-e050-4c17-b51b-ed0c81de7a61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Porte\Private">
+      <UniqueIdentifier>{69378633-00e5-4253-b37e-e55fffd1a6cd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\Porte\Public\CGrabber.h">
+      <Filter>Source\Porte\Public</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\Porte\Private\CGrabber.cpp">
+      <Filter>Source\Porte\Private</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

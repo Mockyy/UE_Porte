@@ -1,0 +1,14 @@
+﻿  Using 'git status' to determine working set for adaptive non-unity build (D:\Unreal Projects\Porte\UE_Porte).
+  Parsing headers for PorteEditor
+    Running UnrealHeaderTool "D:\Unreal Projects\Porte\UE_Porte\Porte\Porte.uproject" "D:\Unreal Projects\Porte\UE_Porte\Porte\Intermediate\Build\Win64\PorteEditor\Development\PorteEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
+  Reflection code generated for PorteEditor in 14,299115 seconds
+  Using Visual Studio 2017 14.16.27023 toolchain (D:\Visual Studio\VC\Tools\MSVC\14.16.27023) and Windows 10.0.17763.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  Building 4 actions with 8 processes...
+    [1/4] CGrabber.cpp
+    [2/4] UE4Editor-Porte-0004.lib
+       CrÚation de la bibliothÞque D:\Unreal Projects\Porte\UE_Porte\Porte\Intermediate\Build\Win64\UE4Editor\Development\Porte\UE4Editor-Porte-0004.lib et de l'objet D:\Unreal Projects\Porte\UE_Porte\Porte\Intermediate\Build\Win64\UE4Editor\Development\Porte\UE4Editor-Porte-0004.exp
+    [3/4] UE4Editor-Porte-0004.dll
+       CrÚation de la bibliothÞque D:\Unreal Projects\Porte\UE_Porte\Porte\Intermediate\Build\Win64\UE4Editor\Development\Porte\UE4Editor-Porte-0004.suppressed.lib et de l'objet D:\Unreal Projects\Porte\UE_Porte\Porte\Intermediate\Build\Win64\UE4Editor\Development\Porte\UE4Editor-Porte-0004.suppressed.exp
+    [4/4] PorteEditor.target
+  Total time in Parallel executor: 102,97 seconds
+  Total execution time: 121,87 seconds
