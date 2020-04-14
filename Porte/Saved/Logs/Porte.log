@@ -2764,3 +2764,13 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2020.04.14-18.38.49:213][791]LogExit: Preparing to exit.
 [2020.04.14-18.39.26:010][791]LogExit: Editor shut down
 [2020.04.14-18.39.26:187][791]LogExit: Transaction tracking system shut down
+[2020.04.14-18.40.09:245][791]LogExit: Object subsystem successfully closed.
+[2020.04.14-18.40.11:757][791]LogShaderCompilers: Display: Shaders left to compile 0
+[2020.04.14-18.40.14:046][791]LogD3D11RHI: Shutdown
+[2020.04.14-18.40.14:046][791]LogD3D11RHI: CleanupD3DDevice
+[2020.04.14-18.40.15:216][791]LogRendererCore: FGlobalReadBuffer::ReleaseRHI
+[2020.04.14-18.40.15:216][791]LogRendererCore: FGlobalDynamicReadBuffer::Cleanup()
+[2020.04.14-18.40.15:251][791]LogRendererCore: FGlobalReadBuffer::ReleaseRHI
+[2020.04.14-18.40.15:251][791]LogRendererCore: FGlobalDynamicReadBuffer::Cleanup()
+[2020.04.14-18.40.15:251][791]LogRendererCore: FGlobalReadBuffer::ReleaseRHI
+[2020.04.14-18.40.15:252][791]LogRendererCore: FGlobalDynamicReadBuffer::Cleanup()
