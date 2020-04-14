@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "CGrabber.generated.h"
-
+#include "PhysicsEngine/PhysicsHandleComponent.h"
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -28,6 +28,19 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Hit Component")
 		FHitResult GetFirstPhysicsBodyInReach();
 
+	void FindPhysicsHandleComponent();
+
+	UFUNCTION(BlueprintCallable, Category = "Hit Component")
+	void Handle();
+
+private:
+
 	UPROPERTY(EditAnyWhere)
 		float fReach;
+
+	UPhysicsHandleComponent *PhysicsHandle;
+
+	FVector GetReachLineStart();
+
+	FVector GetReachLineEnd();
 };

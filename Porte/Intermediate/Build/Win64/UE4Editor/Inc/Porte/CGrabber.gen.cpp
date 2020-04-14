@@ -101,7 +101,7 @@ void EmptyLinkFunctionForGeneratedCodeCGrabber() {}
 		{ "ModuleRelativePath", "Public/CGrabber.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCGrabber_Statics::NewProp_fReach = { "fReach", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCGrabber, fReach), METADATA_PARAMS(Z_Construct_UClass_UCGrabber_Statics::NewProp_fReach_MetaData, ARRAY_COUNT(Z_Construct_UClass_UCGrabber_Statics::NewProp_fReach_MetaData)) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCGrabber_Statics::NewProp_fReach = { "fReach", nullptr, (EPropertyFlags)0x0040000000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCGrabber, fReach), METADATA_PARAMS(Z_Construct_UClass_UCGrabber_Statics::NewProp_fReach_MetaData, ARRAY_COUNT(Z_Construct_UClass_UCGrabber_Statics::NewProp_fReach_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCGrabber_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCGrabber_Statics::NewProp_fReach,
 	};
@@ -132,7 +132,7 @@ void EmptyLinkFunctionForGeneratedCodeCGrabber() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UCGrabber, 1865955190);
+	IMPLEMENT_CLASS(UCGrabber, 1878480449);
 	template<> PORTE_API UClass* StaticClass<UCGrabber>()
 	{
 		return UCGrabber::StaticClass();

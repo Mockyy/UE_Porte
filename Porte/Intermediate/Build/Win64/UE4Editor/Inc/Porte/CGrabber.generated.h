@@ -78,7 +78,10 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UCGrabber); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UCGrabber)
 
 
-#define Porte_Source_Porte_Public_CGrabber_h_14_PRIVATE_PROPERTY_OFFSET
+#define Porte_Source_Porte_Public_CGrabber_h_14_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__fReach() { return STRUCT_OFFSET(UCGrabber, fReach); }
+
+
 #define Porte_Source_Porte_Public_CGrabber_h_11_PROLOG
 #define Porte_Source_Porte_Public_CGrabber_h_14_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

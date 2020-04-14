@@ -3,6 +3,9 @@
 #include "../Public/CGrabber.h"
 #include "CollisionQueryParams.h"
 #include "DrawDebugHelpers.h"
+#include "EngineUtils.h"
+#include "GameFramework/Actor.h"
+#include "GameFramework/PlayerController.h"
 
 // Sets default values for this component's properties
 UCGrabber::UCGrabber()
@@ -11,6 +14,7 @@ UCGrabber::UCGrabber()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 	fReach = 0.f;
+	PhysicsHandle = NULL;
 
 	// ...
 }
@@ -31,7 +35,10 @@ void UCGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	if (PhysicsHandle->GrabbedComponent)
+	{
+		PhysicsHandle->SetTargetLocation(GetReachLineEnd());
+	}
 }
 
 FHitResult UCGrabber::GetFirstPhysicsBodyInReach()
@@ -39,6 +46,57 @@ FHitResult UCGrabber::GetFirstPhysicsBodyInReach()
 	FCollisionQueryParams TraceParameters(FName(TEXT("")), false, GetOwner());
 
 	FHitResult Hit;
+
+	if (GetWorld()->LineTraceSingleByObjectType(Hit, GetReachLineStart(), GetReachLineEnd(),
+		FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody), TraceParameters))
+	{
+		DrawDebugLine(GetWorld(), GetReachLineStart(), GetReachLineEnd(), FColor::Green, false, 5.f);
+	}
+	else
+	{
+		DrawDebugLine(GetWorld(), GetReachLineStart(), GetReachLineEnd(), FColor::Purple, false, 5.f);
+	}
+
+	return Hit;
+}
+
+void UCGrabber::FindPhysicsHandleComponent()
+{
+	PhysicsHandle = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
+
+	if (ensure(PhysicsHandle))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Component found"));
+	}
+}
+
+void UCGrabber::Handle()
+{
+	FHitResult Hit = GetFirstPhysicsBodyInReach();
+
+	UPrimitiveComponent *ComponentToGrab = Hit.GetComponent();
+	AActor *ActorHit = Hit.GetActor();
+
+	if (ensure(ActorHit))
+	{
+		PhysicsHandle->GrabComponentAtLocation(
+			ComponentToGrab, NAME_None, ComponentToGrab->GetOwner()->GetActorLocation());
+	}
+}
+
+FVector UCGrabber::GetReachLineStart()
+{
+	FVector PlayerViewPointVector;
+	FRotator PlayerViewPointRotator;
+
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(PlayerViewPointVector, PlayerViewPointRotator);
+
+
+	return PlayerViewPointVector;
+}
+
+FVector UCGrabber::GetReachLineEnd()
+{
 	FVector PlayerViewPointVector;
 	FRotator PlayerViewPointRotator;
 
@@ -46,11 +104,6 @@ FHitResult UCGrabber::GetFirstPhysicsBodyInReach()
 
 	FVector LineEnd = PlayerViewPointVector + PlayerViewPointRotator.Vector() * fReach;
 
-	DrawDebugLine(GetWorld(), PlayerViewPointVector, LineEnd, FColor::Purple, false, 5.f);
-
-	GetWorld()->LineTraceSingleByObjectType(Hit, PlayerViewPointVector, LineEnd,
-		FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody), TraceParameters);
-
-	return Hit;
+	return LineEnd;
 }
 
